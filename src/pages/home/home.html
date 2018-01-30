@@ -6,10 +6,10 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
-  <button (click)='openGame()'>Start Game</button>
+<ion-content padding class="wholePg">
+  <div text-capitalize text-center>
+    <h1 id="heading">Welcome!</h1>
+    <p>Click start to go to the game window;</p>
+  </div>
+  <button ion-button (click)='openGame()' color="danger">Start Game</button>
 </ion-content>
