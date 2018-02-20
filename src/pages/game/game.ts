@@ -14,15 +14,55 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'game.html',
 })
 
-
 export class GamePage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
+  //slot image path vars
+    // slot1PathVar:string="assets/imgs/bell.png";
+    // slot2PathVar:string="assets/imgs/bell.png";
+    // slot3PathVar:string="assets/imgs/bell.png";
+    
+    //lbl vars
+    creditLblVar:String = ""+10;
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad GamePage');
   }
+  //converting basic typescript functions to ionic functions
+  ionicSpin(){
+      spin();
+  }
+  
+  ionicStopSlot1(){
+    stopSlot1();
+  }
+
+  ionicStopSlot2(){
+    stopSlot2();
+  }
+
+  ionicStopSlot3(){
+    stopSlot3();
+  }
+
+  ionicAddCredit(){
+    addCredit(this.creditLblVar);
+    console.log(""+this.creditLblVar);
+  }
+
+  ionicBetOne(){
+    betOne();
+  }
+
+  ionicBetMax(){
+      betMax();
+  }
+
+  ionicReset(){
+    reset();
+  }
+
 
 }
 
@@ -72,6 +112,7 @@ class Reel{
   // private label:String;
   private randomNum:number;
 
+
   //constructor
   constructor(){
       
@@ -95,6 +136,7 @@ class Reel{
       let bell = new Symbols('assets/images/bell.png',6);
       let redSeven = new Symbols('assets/images/redseven.png',7);
 
+      
       //adding all symbols to the array
       Reel.symbol[0]=cherry;
       Reel.symbol[1]=lemon;
@@ -106,13 +148,17 @@ class Reel{
   }    
   
   //changing the images
-  public spinImage(slot:HTMLImageElement, randomNum:number){
+   spinImage(slot:HTMLImageElement, randomNum:number){
 
-      slot.src = Reel.symbol[randomNum].getImage();
+    slot.src = Reel.symbol[randomNum].getImage();
+    // GamePage.slot1PathVar=Reel.symbol[randomNum].getImage();
 
   }
 
 }
+
+  
+   
 
 //initilizing randomNum
 let randomNum:number= 0;
@@ -197,6 +243,7 @@ Reel.addSymbol();
 // });
 
 function spin(){
+
     // alert('works');
     // console.log('btn func');
     if(toSpin){
@@ -317,9 +364,12 @@ function stopSlot3(){
 // });
 
 //add credits
-function addCredit(){
+function addCredit(creditLblVar:String){
     credits++;
-    creditLbl.innerHTML=""+credits;
+    // creditLbl.innerHTML=""+credits;
+    creditLblVar=""+credits;
+    // console.log(""+credits);
+
 }
 
 //bet 1 button
