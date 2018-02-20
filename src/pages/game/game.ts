@@ -47,8 +47,8 @@ export class GamePage {
   }
 
   ionicAddCredit(){
-    addCredit(this.creditLblVar);
-    console.log(""+this.creditLblVar);
+    this.creditLblVar=addCredit();
+    // console.log(""+this.creditLblVar);
   }
 
   ionicBetOne(){
@@ -364,10 +364,10 @@ function stopSlot3(){
 // });
 
 //add credits
-function addCredit(creditLblVar:String){
+function addCredit():String{
     credits++;
     // creditLbl.innerHTML=""+credits;
-    creditLblVar=""+credits;
+    return ""+credits;
     // console.log(""+credits);
 
 }
